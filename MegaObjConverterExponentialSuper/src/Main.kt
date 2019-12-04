@@ -1,6 +1,7 @@
 
 import java.io.ByteArrayOutputStream
 import java.io.File
+import java.nio.ByteBuffer
 import kotlin.experimental.and
 
 
@@ -88,47 +89,61 @@ class Main {
     companion object {
 
         var byteArr = byteArrayOf();
-        fun floatToByteArray(value: Float): ByteArray? {
+        fun floatToByteArray(value: Float): ByteArray {
             val intBits = java.lang.Float.floatToIntBits(value)
-            byteArr += byteArrayOf(
+
+            return byteArrayOf(
                 (intBits shr 24).toByte(),
                 (intBits shr 16).toByte(),
                 (intBits shr 8).toByte(),
                 intBits.toByte()
             )
-            return null
+        }
+
+        fun floatToByteArray2(value: Float): ByteArray{
+            val int = java.lang.Float.floatToIntBits(value)
+            val bytes = ByteBuffer.allocate(java.lang.Integer.BYTES).putInt(int).array()
+            return bytes
         }
 
         fun byteArraytoFloat(bytes: ByteArray): Float{
-            val intBits: Int =
-               bytes[0].toInt() shl 24 or (bytes[1].toInt() and 0xFF shl 16) or (bytes[2].toInt() and 0xFF.toInt() shl 8.toInt()) or (bytes[3].toInt() and 0xFF)
-           return java.lang.Float.intBitsToFloat(intBits)
+            val buffer = ByteBuffer.wrap(bytes)
+            val float = buffer.getFloat()
+            return float
         }
 
         @JvmStatic fun main(args: Array<String>) {
             val test = Main()
-            val array = test.loadRawObj()
+            val originalArray = test.loadRawObj()
+
+            println("Float value: " + originalArray[0] + " Byte array: " + floatToByteArray2(originalArray[0]) + " Bytearray to float: " + byteArraytoFloat(floatToByteArray2(originalArray[0])))
 
 
             val file = File ( "ducky.moces")
 
-            array.forEach { it ->
-                floatToByteArray(it)
-                //println(floatToByteArray(it)!!)
-
+            originalArray.forEach { it ->
+                byteArr += floatToByteArray2(it)
             }
             file.writeBytes(byteArr)
 
 
-            var arr = file.readBytes()
+            var readBytesArray = file.readBytes()
+            var result: FloatArray = FloatArray(originalArray.size)
 
-            for (x in 0 until arr.size step 4)
+            for (x in 0 until readBytesArray.size step 4)
             {
-                var teilmenge = byteArrayOf( arr[x] ,arr[x+1],arr[x+2],arr[x+3])
-
-                println(array[x].toString() + " gusch "+ byteArraytoFloat(teilmenge).toString())
+                var subset = byteArrayOf( readBytesArray[x], readBytesArray[x+1], readBytesArray[x+2], readBytesArray[x+3])
+                val float = byteArraytoFloat(subset)
+                println("Float: " + float)
+                result[x / 4] = float
             }
-           // array.forEach { it -> println(it.toByte()) }
+
+            for(i in 0 until result.size){
+                println("Previous: " + originalArray[i] + " after: "  + result[i])
+            }
         }
+
+
     }
+
 }

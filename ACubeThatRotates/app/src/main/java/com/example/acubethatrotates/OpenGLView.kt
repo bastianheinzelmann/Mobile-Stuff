@@ -6,6 +6,7 @@ import android.util.DisplayMetrics
 import android.util.TimingLogger
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
+import java.nio.ByteBuffer
 
 import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
@@ -38,12 +39,10 @@ class OpenGLView: GLSurfaceView {
         }
 
         override fun onSurfaceCreated(gl: GL10?, config: EGLConfig?) {
-            var timingLogger: TimingLogger = TimingLogger("Timing", "Raw Timing")
             var vertexArray: FloatArray? = null
             println( "Ich bin eine Zeitmessfunktion. Ich messe die Zeit: " + measureTimeMillis {
-                vertexArray = loadRawObj()
+                vertexArray = loadMoces()
             } + " ms")
-            timingLogger.addSplit("Timing of raw obj file")
             val displayMetrics: DisplayMetrics = DisplayMetrics()
             display.getMetrics(displayMetrics)
             nativeCubeLib().init(displayMetrics.widthPixels, displayMetrics.heightPixels, vertexArray!!)
@@ -82,6 +81,30 @@ class OpenGLView: GLSurfaceView {
 
         scaleGestureDetector.onTouchEvent(event)
         return true
+    }
+
+    fun byteArraytoFloat(bytes: ByteArray): Float{
+        val buffer = ByteBuffer.wrap(bytes)
+        val float = buffer.getFloat()
+        return float
+    }
+
+    fun loadMoces() : FloatArray{
+        val fileName = "psyduck.moces"
+
+        val byteArray: ByteArray
+
+        byteArray = context.assets.open(fileName).readBytes()
+
+        var result = FloatArray(byteArray.size / 4)
+
+        for(i in 0 until byteArray.size step 4){
+            var subset = byteArrayOf( byteArray[i], byteArray[i+1], byteArray[i+2], byteArray[i+3])
+            val float = byteArraytoFloat(subset)
+            result[i/4] = float
+        }
+
+        return result
     }
 
     fun loadRawObj() : FloatArray{
@@ -144,28 +167,13 @@ class OpenGLView: GLSurfaceView {
             val vertexIndex = (vertexIndicesArray[i] - 1) * 3
             val uvIndex = (uvIndicesArray[i] - 1) * 2
 
-            //println("Vertex Index: " + vertexIndex)
-
-            //println("x: " + vertexArray[vertexIndex])
             vertexArrayResult[i * 5] = vertexArray[vertexIndex]
-            //println("y: " + vertexArray[vertexIndex + 1])
             vertexArrayResult[i * 5 + 1] = vertexArray[vertexIndex + 1]
-            //println("z: " + vertexArray[vertexIndex + 2])
             vertexArrayResult[i * 5 + 2] = vertexArray[vertexIndex + 2]
 
             vertexArrayResult[i * 5 + 3] = uvArray[uvIndex]
             vertexArrayResult[i * 5 + 4] = uvArray[uvIndex + 1]
         }
-
-//        for(i in 0 until vertexArray.size step 3){
-//            println("Vertex x: " + vertexArray[i] + " y: " + vertexArray[i + 1] + " z: " + vertexArray[i + 2])
-//        }
-
-
-//        println("Tris: " + vertexArrayResult.size / 15)
-//        for(i in 0 until vertexArrayResult.size step 5){
-//            println("Vertex x: " + vertexArrayResult[i] + " y: " + vertexArrayResult[i + 1] + " z: " + vertexArrayResult[i + 2])
-//        }
 
         return vertexArrayResult
     }
