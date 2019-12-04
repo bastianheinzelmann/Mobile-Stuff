@@ -39,10 +39,22 @@ class OpenGLView: GLSurfaceView {
         }
 
         override fun onSurfaceCreated(gl: GL10?, config: EGLConfig?) {
+            var vertexArrayObj: FloatArray? = null
+            var vertexArrayMoces: FloatArray? = null
             var vertexArray: FloatArray? = null
-            println( "Ich bin eine Zeitmessfunktion. Ich messe die Zeit: " + measureTimeMillis {
-                vertexArray = loadMoces()
+            val loadObj = false
+            println("Ich bin eine Zeitmessfunktion. Ich messe die Zeit Moces: " + measureTimeMillis {
+                vertexArrayMoces = loadMoces()
             } + " ms")
+            println("Ich bin eine Zeitmessfunktion. Ich messe die Zeit Obj: " + measureTimeMillis {
+                vertexArrayObj = loadRawObj()
+            } + " ms")
+
+            if(loadObj)
+                vertexArray = vertexArrayMoces
+            else
+                vertexArray = vertexArrayObj
+
             val displayMetrics: DisplayMetrics = DisplayMetrics()
             display.getMetrics(displayMetrics)
             nativeCubeLib().init(displayMetrics.widthPixels, displayMetrics.heightPixels, vertexArray!!)

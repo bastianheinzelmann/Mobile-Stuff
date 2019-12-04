@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76e5c216-a339-4867-8123-117ded10e6dc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../ACubeThatRotates/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ACubeThatRotates/app/src/main/assets/psyduck.moces" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ACubeThatRotates/app/src/main/java/com/example/acubethatrotates/OpenGLView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../ACubeThatRotates/app/src/main/java/com/example/acubethatrotates/OpenGLView.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MegaObjConverterExponentialSuper/Main$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MegaObjConverterExponentialSuper/Main$Companion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MegaObjConverterExponentialSuper/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MegaObjConverterExponentialSuper/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +73,19 @@
       <option name="presentableId" value="Default" />
       <updated>1575304210375</updated>
     </task>
+    <task id="LOCAL-00001" summary="asdf">
+      <created>1575458269306</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575458269306</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="asdf" />
+    <option name="LAST_COMMIT_MESSAGE" value="asdf" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="177" key="#Project_Structure" timestamp="1575304236338">
@@ -106,25 +112,29 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2333" y="113" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1575458268498" />
-    <state width="1877" height="258" key="GridCell.Tab.0.bottom" timestamp="1575455442257">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom" timestamp="1575459420207">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575455442257" />
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1575459420207" />
     <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575310165908" />
-    <state width="1877" height="258" key="GridCell.Tab.0.center" timestamp="1575455442257">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="258" key="GridCell.Tab.0.center" timestamp="1575459420207">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575455442257" />
+    <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1575459420207" />
     <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575310165907" />
-    <state width="1877" height="258" key="GridCell.Tab.0.left" timestamp="1575455442257">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="258" key="GridCell.Tab.0.left" timestamp="1575459420207">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575455442257" />
+    <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1575459420207" />
     <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575310165907" />
-    <state width="1877" height="258" key="GridCell.Tab.0.right" timestamp="1575455442257">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="258" key="GridCell.Tab.0.right" timestamp="1575459420207">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575455442257" />
+    <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1575459420207" />
     <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575310165908" />
     <state x="661" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1575451383865">
       <screen x="0" y="0" width="1920" height="1040" />
